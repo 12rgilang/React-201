@@ -4,8 +4,7 @@ import Hero from './Hero';
 const Home = () => {
     return(
       <>
-      <Hero />
-        <h1>changed</h1>
+      <Hero text="This is Home page for REACT 201" />
       </>
     )
 }

@@ -1,8 +1,8 @@
 // Hero Component
-const Hero = () => {
+const Hero = ({ text }) => {
     return (
       <header className="bg-dark text-white p-5">
-        Try hero
+          <h1>{text}</h1>
       </header>
     )
   } 
