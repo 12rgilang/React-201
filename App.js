@@ -1,8 +1,11 @@
 import './App.css';
+import Navbar from './components/Navbar'
 
+//adding navbar component
 function App() {
   return (
-    <div className="App">
+    <div>
+      <Navbar />
       <h1>Test</h1>
     </div>
   );
