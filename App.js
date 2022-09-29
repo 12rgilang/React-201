@@ -1,12 +1,20 @@
 import './App.css';
 import Navbar from './components/Navbar'
+import Home from './components/Home'
+import AboutView from './components/AboutView'
+import { Routes, Route } from 'react-router-dom';
 
-//adding navbar component
+
+
+// installing React router
 function App() {
   return (
     <div>
       <Navbar />
-      <h1>Test</h1>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<AboutView />} />
+        </Routes>
     </div>
   );
 }
