@@ -11,9 +11,8 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  // React API Request
+  // React Browser History
   useEffect(() => {
-    console.log(searchText, "is the search text")
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=18e659b9c7680f677bc6ab62bf5a8838&language=en-US&query=${searchText}&page=1&include_adult=false`)
     .then(response => response.json())
     .then(data => {

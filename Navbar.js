@@ -1,11 +1,13 @@
 // importing a Link
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 const Navbar = ({ searchText, setSearchText }) => {
-
-//Binding Keyup events
+  const navigate = useNavigate()
+  
+  //React Browser History
   const updateSearchText = (e) => {
+    navigate('/search')
     setSearchText(e.target.value)
   }
 
