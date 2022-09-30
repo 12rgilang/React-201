@@ -13,12 +13,13 @@ function App() {
 
   // React Browser History
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=18e659b9c7680f677bc6ab62bf5a8838&language=en-US&query=${searchText}&page=1&include_adult=false`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      setSearchResults(data.results)
-    })
+    if(searchText) {
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=18e659b9c7680f677bc6ab62bf5a8838&language=en-US&query=${searchText}&page=1&include_adult=false`)
+      .then(response => response.json())
+      .then(data => {
+        setSearchResults(data.results)
+      })
+    }
   }, [searchText])
 
 
