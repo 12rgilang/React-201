@@ -11,11 +11,19 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  // console.log(searchText, "is the default")
-  // setTimeout(() => {
-  //   setSearchText("New text")
-  //   console.log(searchText, "is the new text")
-  // }, 2000)
+  // React API Request
+  useEffect(() => {
+    console.log(searchText, "is the search text")
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=18e659b9c7680f677bc6ab62bf5a8838&language=en-US&query=${searchText}&page=1&include_adult=false`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      setSearchResults(data.results)
+    })
+  }, [searchText])
+
+
+
 
   return (
     <div>
