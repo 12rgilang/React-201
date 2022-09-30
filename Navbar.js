@@ -1,6 +1,16 @@
 // importing a Link
 import { Link } from "react-router-dom";
-const Navbar = () => {
+
+
+const Navbar = ({ searchText, setSearchText }) => {
+
+//Binding Keyup events
+  const updateSearchText = (e) => {
+    setSearchText(e.target.value)
+  }
+
+
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -40,6 +50,8 @@ const Navbar = () => {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              value={searchText}
+              onChange={updateSearchText}
             />
             <button className="btn btn-outline-success" type="submit">
               Search
