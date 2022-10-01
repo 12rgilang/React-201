@@ -17,7 +17,7 @@ const Navbar = ({ searchText, setSearchText }) => {
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Movie Browser
+          Pilem geratis
         </Link>
         <button
           className="navbar-toggler"
