@@ -29,9 +29,10 @@ const MovieView = () => {
         if(movieDetails) {
             //TODO: deal with a possible missing image
             const posterPath = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}` // movie component API
+            const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}` //adding backdrop in hero section
             return (
             <>
-                <Hero text={movieDetails.original_title} />
+                <Hero text={movieDetails.original_title} backdrop={backdropUrl} />
                 <div className="container my-5">
                     <div className="row">
                         <div className="col-md-3">
