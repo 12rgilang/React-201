@@ -5,24 +5,34 @@ import { useEffect, useState } from "react";
 // Movie Detail Component
 const MovieView = () => {
     const { id } = useParams()
+    const [ movieDetails, setMovieDetails ] = useState({})
+    const [ isLoading, setIsLoading ] = useState(true)
 
-    const [movieDetails, setMovieDetails ] = useState({})
-
+    // Loading State with 2 sec loading wait
     useEffect(() => {
         console.log("make an api request", id)
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=18e659b9c7680f677bc6ab62bf5a8838&language=en-US`)
             .then(response => response.json())
             .then(data => {
-                setMovieDetails(data)
+                setTimeout (() =>{
+                    setMovieDetails(data)
+                    setIsLoading(false) 
+                }, 2000) 
             })
     }, [id])
 
-  return (
-    <>
-      <Hero text={movieDetails.original_title} />
-      
-    </>
-  );
+// Add Loading State
+    function renderMovieDetails() {
+        if(isLoading) {
+            return <Hero text="Loading..." />
+        }
+        if(movieDetails) {
+            return <Hero text={movieDetails.original_title} />
+        }
+    }
+
+
+  return renderMovieDetails()
 };
 
 export default MovieView;
